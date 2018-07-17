@@ -387,6 +387,9 @@ func main() {
 			</body>
 			</html>`))
 	})
+	http.HandleFunc("/_/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(`ok`))
+	})
 
 	log.Printf("Starting Server at : %s", *listenAddress)
 	log.Printf("Metrics endpoint: %s", *metricsEndpoint)
